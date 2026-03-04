@@ -274,7 +274,14 @@ function showModal() {
 function hideModal() {
   modal.classList.remove("show");
   modal.setAttribute("aria-hidden", "true");
+  stopEmbeddedVideo();
 }
+
+function stopEmbeddedVideo() {
+  ytFrame.removeAttribute("src"); // zatrzymuje odtwarzanie
+  embedWrap.hidden = true;
+}
+
 
 tabs.forEach((t) => {
   t.addEventListener("click", () => setBoard(Number(t.dataset.board)));
@@ -299,7 +306,10 @@ modal.addEventListener("click", (e) => {
 
 // persist preference
 const PREF_KEY = "coreSupportBingo:autoOpenYT:v1";
-autoOpenToggle.checked = localStorage.getItem(PREF_KEY) === "1";
+
+const pref = localStorage.getItem(PREF_KEY);
+autoOpenToggle.checked = pref !== "0";
+
 autoOpenToggle.addEventListener("change", () => {
   localStorage.setItem(PREF_KEY, autoOpenToggle.checked ? "1" : "0");
 });
