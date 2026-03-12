@@ -30,6 +30,10 @@ const PHRASES = [
   "MOLOCO",
   "Podsy padły",
   "Artifactory padło",
+  "Rozmowa o dzieciach na daily",
+  "Rozmowa o lekarzach na daily",
+  "BMW mention",
+  "A to jednak u nas a nie u was"
 ];
 
 // ---------- utils: date in Warsaw ----------
